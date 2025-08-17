@@ -135,11 +135,14 @@ module osfet(d, g, s);
         Vdf = V(df) ;
 
         // Initialization of variables
-        phit = `P_K * Tjun / `P_Q ; // Thermal voltage [V]
+        // Tj = Tjun ;
+        Tj = $temperature ;
+        $display ("temperature = %e", Tj) ;
+        phit = `P_K * Tj / `P_Q ; // Thermal voltage [V]
         // $display ("phit = %f", phit) ;
-        kT = `P_K * Tjun ;  // Thermal energy [J]
+        kT = `P_K * Tj ;  // Thermal energy [J]
         hbar = `P_H / (2.0 * `M_PI) ; // Reduced planck's constant [J-s]
-        tt = $abstime ;
+        tt = $realtime ;
         // $display ("simulation time now = %e", tt) ;
         n = n0 + nd * Vdsi ;
         // nphit = n*phit ;
