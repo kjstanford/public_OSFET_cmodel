@@ -98,5 +98,5 @@ c = ['r', 'b']
 s = ['None']*2+['solid']*2
 m = ['o']*2+[None]*2
 a = [1]*2
-mask = [True, False]
+mask = [True, True]
 logy_lin_plot_dual(x1=xvg, y1=[id*1e6/2 for id in yid], x2=xvg, y2=[id*1e6/2 for id in yid], c1=c, c2=c, s1=s, s2=s, a1=a, a2=a, m1=m, m2=m, mask=mask, lw=4.0, xlabel="$\mathbf{Vg [V]}$", ylabel="$\mathbf{Id [uA/um]}$", figname=generate_figname(), ylim=[1e-6, 1e3])
