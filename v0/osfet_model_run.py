@@ -1,4 +1,5 @@
 from helper_funs import *
+from TLM_OSFETs import *
 import re
 
 def generate_figname():
@@ -60,10 +61,18 @@ if len(pd_data_set) > 2:
 
 Vg_all = [get_sweeps(d[' Vg'].to_numpy()) for d in pd_data_set[:2]]
 Id_all = [get_sweeps(d[' absIs'].to_numpy()) for d in pd_data_set[:2]]
-xvg = [vg['f'] for vg in Vg_all]
-yid = [id['f'] for id in Id_all]
+xvg = [vg['f'][::2] for vg in Vg_all]
+yid = [id['f'][::2] for id in Id_all]
 # xvg += [vg['b'] for vg in Vg_all]
 # yid += [id['b'] for id in Id_all]
+
+Vglin = xvg[-2]
+Idlin = yid[-2]
+Vdlin = 50e-3
+T = 300
+PHIT = kB*300
+BETA, nSSlin, VTONlin, VTOFFlin, TRlin = calculate_VTON_VTOFF(Vglin, Idlin*1e6/2, Vdlin, PHIT, Id_SS_limits=[1e-5, 1e-1])
+print(BETA, nSSlin, VTONlin, VTOFFlin, TRlin)
 
 # c = ['r', 'b']
 # s = ['solid']*2
@@ -89,6 +98,5 @@ c = ['r', 'b']
 s = ['None']*2+['solid']*2
 m = ['o']*2+[None]*2
 a = [1]*2
-mask = [True, True]
-print(yid)
+mask = [True, False]
 logy_lin_plot_dual(x1=xvg, y1=[id*1e6/2 for id in yid], x2=xvg, y2=[id*1e6/2 for id in yid], c1=c, c2=c, s1=s, s2=s, a1=a, a2=a, m1=m, m2=m, mask=mask, lw=4.0, xlabel="$\mathbf{Vg [V]}$", ylabel="$\mathbf{Id [uA/um]}$", figname=generate_figname(), ylim=[1e-6, 1e3])

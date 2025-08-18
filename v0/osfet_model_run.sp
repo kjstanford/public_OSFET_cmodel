@@ -9,8 +9,8 @@
 .PARAM vdrainlin = 50e-3
 .PARAM vdrainsat = 2
 .PARAM vdrain = vdrainlin
-.PARAM vgateh = 2.5
-.PARAM vgatel = -0.5 
+.PARAM vgateh = 2
+.PARAM vgatel = -1 
 .PARAM vgate = vgatel
 
 * .DC vgate LIN 100.0 'vgatel' 'vgateh'
