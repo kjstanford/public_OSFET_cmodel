@@ -12,7 +12,7 @@ module osfet(d, g, s);
     `define EPS0    8.85418782e-12
 
     parameter real 		version 		= 	0.00;                                     //      OSFET compact model version = 0.0.0
-    parameter real      Tjun            =   300.0                   from (0:inf);     //     Temperature [K]
+    // parameter real      Tjun            =   300.0                   from (0:inf);     //     Temperature [K] -- obsolete now
     parameter real      mu_eff          =   0.0012                     from (0:inf);     //     Band mobility [m^2 / V s]
     parameter real      W               =   2e-6                     from (0:inf);     //      OSFET Width [m]
     parameter real      Lch             =   6e-8                       from (0:inf);     //      Physicsl Gate Length [m]
