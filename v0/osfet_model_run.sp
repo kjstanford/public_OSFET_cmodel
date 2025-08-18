@@ -25,7 +25,7 @@
 
 .HDL osfet_potential_based_compact_model_v1.va
 
-xos d g s osfet W=120e-9
+xos d g s osfet W=2e-6
 
 vd d 0 DC='vdrain'
 vg g 0 DC='vgate'

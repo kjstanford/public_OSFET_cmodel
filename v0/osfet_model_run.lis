@@ -1,0 +1,506 @@
+ ****** PrimeSim HSPICE -- R-2020.12-SP1 linux64 (Apr 10 2021 6983340) ******
+  Copyright (c) 1986 - 2025 by Synopsys, Inc. All Rights Reserved.
+  This software and the associated documentation are proprietary
+  to Synopsys, Inc. This software may only be used in accordance
+  with the terms and conditions of a written license agreement with
+  Synopsys, Inc. All other use, reproduction, or distribution of
+  this software is strictly prohibited.
+  Input File: osfet_model_run.sp                                                
+  Command line options: /cad/synopsys/hspice/R-2020.12-SP1/hspice/linux64/hspice osfet_model_run.sp -o
+  Start time: Sun Aug 17 21:38:04 2025
+ lic:  
+ lic: FLEXlm: SDK_12.9.5 
+ lic: USER:   kj2011               HOSTNAME: nanopower.stanford.edu 
+ lic: HOSTID: "002590e70e02"       PID:      3028822 
+ lic: Using FLEXlm license file: 
+ lic: 27000@cadlic0.stanford.edu 
+ lic: Checkout 1 hspice 
+ lic: License/Maintenance for hspice will expire on 06-nov-2026/2025.06 
+ lic: 1(in_use)/200(total) FLOATING license(s) on SERVER 27000@cadlic0.stanford.edu 
+ lic:   
+ **info** *pvaI* current limit stacksize=8388608, set new limit stacksize=62914560
+
+ **info** *pvaI* Module (osfet): 3 unexpanded port, 0 init, 173 behav, 11 contrib, 51/235 expr(s)
+
+ **warning** *pvaW*        Variable 'Tj' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (osfet_potential_based_compact_model_v1.va:139)
+
+ **info** *pvaI*        Has DIS(ST SB), 3/14 afCount, 0 MT, dlg, 2 node(s) maybe reduced, IO(0/1/1/1)
+
+ **info** *pvaI*        0 gmdIsThreadSafe (ST SB)
+
+ **info** *pvaI*        0 const-G and 0 const-C, Has switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
+
+ **info** *pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
+
+ **warning** *pvaW*        variable 'Vds' initialized but not used in RHS, deleted (osfet_potential_based_compact_model_v1.va:129)
+
+ **warning** *pvaW*                   To relax this rule, use 'setenv PVA_KEEP_VARS 1' to keep variables for probing.
+
+ **warning** *pvaW*        variable 'Vgs' initialized but not used in RHS, deleted (osfet_potential_based_compact_model_v1.va:127)
+
+ **warning** *pvaW*        variable 'tt' initialized but not used in RHS, deleted (osfet_potential_based_compact_model_v1.va:145)
+
+ **warning** *pvaW*        variable 'nphit' declared but not used in RHS, deleted (osfet_potential_based_compact_model_v1.va:104)
+
+ **info** *pvaI*        For analog block, use $abstime() instead of $realtime().
+
+ **info** *pvaI*        generated 2 flow node(s) during compilation.
+
+ **info** *pvaI* #### Total 361 line-size(s), 51/235 expr(s), 11 contr(s), 0 init(s), 173 behav(s), 3 port(s)
+
+ Loading pVA library osfet_model_run.pvadir/pvaRTL_linux64.so...
+1****** PrimeSim HSPICE -- R-2020.12-SP1 linux64 (Apr 10 2021 6983340) ******
+ ******  
+ ** osfet model test
+
+ ****** circuit name directory
+ circuit number to circuit name directory
+   number circuitname                     definition         multiplier
+        0 main circuit
+        1 xos.                            osfet(va)          1.00 
+ **info** *pvaI* Creating VA module (osfet) for instance XOS
+
+ **info** *pvaI*        termCount=9 diwSize=50 probeSize=75 Qsize=4 Isize=7
+
+ End of GMD creation on Sun Aug 17 21:38:07 2025	GTM/In-use: 4.3750/2.8423 MB
+
+
+  
+      
+ *****************************************************************
+ ******  option summary
+ ******
+ runlvl  = 3         bypass  = 2.0000    
+  Opening plot unit= 15
+ file=osfet_model_run.pa0
+
+ End of pVA setup    on Sun Aug 17 21:38:07 2025	GTM/In-use: 4.3750/2.8829 MB
+
+
+ Begin of pVA simulation on Sun Aug 17 21:38:07 2025	GTM/In-use: 4.3750/2.8829 MB
+
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+ temperature = 2.981500e+02
+
+  **warning** too many 50 repeated identical pVA messages given, further will be suppressed in the log file
+ ******
+ ** osfet model test
+
+ ****** dc transfer curves tnom=  25.000 temp=  25.000 ******
+  *** parameter vdrain =   5.000e-02       ***
+  
+x
+
+ vgate        voltage    current   
+             g          vs         
+ -5.0000e-01 -5.000e-01  2.653e-13 
+ -4.7500e-01 -4.750e-01  5.075e-13 
+ -4.5000e-01 -4.500e-01  9.709e-13 
+ -4.2500e-01 -4.250e-01  1.857e-12 
+ -4.0000e-01 -4.000e-01  3.553e-12 
+ -3.7500e-01 -3.750e-01  6.797e-12 
+ -3.5000e-01 -3.500e-01  1.300e-11 
+ -3.2500e-01 -3.250e-01  2.488e-11 
+ -3.0000e-01 -3.000e-01  4.759e-11 
+ -2.7500e-01 -2.750e-01  9.103e-11 
+ -2.5000e-01 -2.500e-01  1.741e-10 
+ -2.2500e-01 -2.250e-01  3.331e-10 
+ -2.0000e-01 -2.000e-01  6.371e-10 
+ -1.7500e-01 -1.750e-01  1.218e-09 
+ -1.5000e-01 -1.500e-01  2.329e-09 
+ -1.2500e-01 -1.250e-01  4.449e-09 
+ -1.0000e-01 -1.000e-01  8.488e-09 
+ -7.5000e-02 -7.500e-02  1.616e-08 
+ -5.0000e-02 -5.000e-02  3.061e-08 
+ -2.5000e-02 -2.500e-02  5.755e-08 
+  0.0000e+00  0.000e+00  1.066e-07 
+  2.5000e-02  2.500e-02  1.931e-07 
+  5.0000e-02  5.000e-02  3.376e-07 
+  7.5000e-02  7.500e-02  5.636e-07 
+  1.0000e-01  1.000e-01  8.904e-07 
+  1.2500e-01  1.250e-01  1.327e-06 
+  1.5000e-01  1.500e-01  1.869e-06 
+  1.7500e-01  1.750e-01  2.502e-06 
+  2.0000e-01  2.000e-01  3.207e-06 
+  2.2500e-01  2.250e-01  3.965e-06 
+  2.5000e-01  2.500e-01  4.759e-06 
+  2.7500e-01  2.750e-01  5.578e-06 
+  3.0000e-01  3.000e-01  6.409e-06 
+  3.2500e-01  3.250e-01  7.247e-06 
+  3.5000e-01  3.500e-01  8.085e-06 
+  3.7500e-01  3.750e-01  8.919e-06 
+  4.0000e-01  4.000e-01  9.747e-06 
+  4.2500e-01  4.250e-01  1.056e-05 
+  4.5000e-01  4.500e-01  1.137e-05 
+  4.7500e-01  4.750e-01  1.217e-05 
+  5.0000e-01  5.000e-01  1.295e-05 
+  5.2500e-01  5.250e-01  1.372e-05 
+  5.5000e-01  5.500e-01  1.447e-05 
+  5.7500e-01  5.750e-01  1.521e-05 
+  6.0000e-01  6.000e-01  1.594e-05 
+  6.2500e-01  6.250e-01  1.665e-05 
+  6.5000e-01  6.500e-01  1.735e-05 
+  6.7500e-01  6.750e-01  1.804e-05 
+  7.0000e-01  7.000e-01  1.871e-05 
+  7.2500e-01  7.250e-01  1.937e-05 
+  7.5000e-01  7.500e-01  2.001e-05 
+  7.7500e-01  7.750e-01  2.064e-05 
+  8.0000e-01  8.000e-01  2.126e-05 
+  8.2500e-01  8.250e-01  2.187e-05 
+  8.5000e-01  8.500e-01  2.246e-05 
+  8.7500e-01  8.750e-01  2.305e-05 
+  9.0000e-01  9.000e-01  2.362e-05 
+  9.2500e-01  9.250e-01  2.418e-05 
+  9.5000e-01  9.500e-01  2.473e-05 
+  9.7500e-01  9.750e-01  2.527e-05 
+  1.0000e+00  1.000e+00  2.580e-05 
+  1.0250e+00  1.025e+00  2.632e-05 
+  1.0500e+00  1.050e+00  2.684e-05 
+  1.0750e+00  1.075e+00  2.734e-05 
+  1.1000e+00  1.100e+00  2.783e-05 
+  1.1250e+00  1.125e+00  2.831e-05 
+  1.1500e+00  1.150e+00  2.879e-05 
+  1.1750e+00  1.175e+00  2.925e-05 
+  1.2000e+00  1.200e+00  2.971e-05 
+  1.2250e+00  1.225e+00  3.016e-05 
+  1.2500e+00  1.250e+00  3.061e-05 
+  1.2750e+00  1.275e+00  3.104e-05 
+  1.3000e+00  1.300e+00  3.147e-05 
+  1.3250e+00  1.325e+00  3.189e-05 
+  1.3500e+00  1.350e+00  3.231e-05 
+  1.3750e+00  1.375e+00  3.271e-05 
+  1.4000e+00  1.400e+00  3.311e-05 
+  1.4250e+00  1.425e+00  3.351e-05 
+  1.4500e+00  1.450e+00  3.390e-05 
+  1.4750e+00  1.475e+00  3.428e-05 
+  1.5000e+00  1.500e+00  3.466e-05 
+  1.5250e+00  1.525e+00  3.503e-05 
+  1.5500e+00  1.550e+00  3.539e-05 
+  1.5750e+00  1.575e+00  3.575e-05 
+  1.6000e+00  1.600e+00  3.610e-05 
+  1.6250e+00  1.625e+00  3.645e-05 
+  1.6500e+00  1.650e+00  3.680e-05 
+  1.6750e+00  1.675e+00  3.713e-05 
+  1.7000e+00  1.700e+00  3.747e-05 
+  1.7250e+00  1.725e+00  3.780e-05 
+  1.7500e+00  1.750e+00  3.812e-05 
+  1.7750e+00  1.775e+00  3.844e-05 
+  1.8000e+00  1.800e+00  3.875e-05 
+  1.8250e+00  1.825e+00  3.906e-05 
+  1.8500e+00  1.850e+00  3.937e-05 
+  1.8750e+00  1.875e+00  3.967e-05 
+  1.9000e+00  1.900e+00  3.997e-05 
+  1.9250e+00  1.925e+00  4.026e-05 
+  1.9500e+00  1.950e+00  4.055e-05 
+  1.9750e+00  1.975e+00  4.084e-05 
+  2.0000e+00  2.000e+00  4.112e-05 
+  2.0250e+00  2.025e+00  4.140e-05 
+  2.0500e+00  2.050e+00  4.167e-05 
+  2.0750e+00  2.075e+00  4.194e-05 
+  2.1000e+00  2.100e+00  4.221e-05 
+  2.1250e+00  2.125e+00  4.247e-05 
+  2.1500e+00  2.150e+00  4.273e-05 
+  2.1750e+00  2.175e+00  4.299e-05 
+  2.2000e+00  2.200e+00  4.325e-05 
+  2.2250e+00  2.225e+00  4.350e-05 
+  2.2500e+00  2.250e+00  4.374e-05 
+  2.2750e+00  2.275e+00  4.399e-05 
+  2.3000e+00  2.300e+00  4.423e-05 
+  2.3250e+00  2.325e+00  4.447e-05 
+  2.3500e+00  2.350e+00  4.470e-05 
+  2.3750e+00  2.375e+00  4.494e-05 
+  2.4000e+00  2.400e+00  4.517e-05 
+  2.4250e+00  2.425e+00  4.540e-05 
+  2.4500e+00  2.450e+00  4.562e-05 
+  2.4750e+00  2.475e+00  4.584e-05 
+  2.5000e+00  2.500e+00  4.606e-05 
+y
+ ******
+ ** osfet model test
+
+ ****** dc transfer curves tnom=  25.000 temp=  25.000 ******
+  *** parameter vdrain =   2.000e+00       ***
+  
+x
+
+ vgate        voltage    current   
+             g          vs         
+ -5.0000e-01 -5.000e-01  3.095e-13 
+ -4.7500e-01 -4.750e-01  5.921e-13 
+ -4.5000e-01 -4.500e-01  1.133e-12 
+ -4.2500e-01 -4.250e-01  2.167e-12 
+ -4.0000e-01 -4.000e-01  4.145e-12 
+ -3.7500e-01 -3.750e-01  7.930e-12 
+ -3.5000e-01 -3.500e-01  1.517e-11 
+ -3.2500e-01 -3.250e-01  2.902e-11 
+ -3.0000e-01 -3.000e-01  5.552e-11 
+ -2.7500e-01 -2.750e-01  1.062e-10 
+ -2.5000e-01 -2.500e-01  2.032e-10 
+ -2.2500e-01 -2.250e-01  3.886e-10 
+ -2.0000e-01 -2.000e-01  7.433e-10 
+ -1.7500e-01 -1.750e-01  1.422e-09 
+ -1.5000e-01 -1.500e-01  2.718e-09 
+ -1.2500e-01 -1.250e-01  5.192e-09 
+ -1.0000e-01 -1.000e-01  9.910e-09 
+ -7.5000e-02 -7.500e-02  1.887e-08 
+ -5.0000e-02 -5.000e-02  3.580e-08 
+ -2.5000e-02 -2.500e-02  6.746e-08 
+  0.0000e+00  0.000e+00  1.255e-07 
+  2.5000e-02  2.500e-02  2.290e-07 
+  5.0000e-02  5.000e-02  4.053e-07 
+  7.5000e-02  7.500e-02  6.898e-07 
+  1.0000e-01  1.000e-01  1.121e-06 
+  1.2500e-01  1.250e-01  1.737e-06 
+  1.5000e-01  1.500e-01  2.570e-06 
+  1.7500e-01  1.750e-01  3.645e-06 
+  2.0000e-01  2.000e-01  4.984e-06 
+  2.2500e-01  2.250e-01  6.601e-06 
+  2.5000e-01  2.500e-01  8.506e-06 
+  2.7500e-01  2.750e-01  1.071e-05 
+  3.0000e-01  3.000e-01  1.321e-05 
+  3.2500e-01  3.250e-01  1.602e-05 
+  3.5000e-01  3.500e-01  1.914e-05 
+  3.7500e-01  3.750e-01  2.256e-05 
+  4.0000e-01  4.000e-01  2.629e-05 
+  4.2500e-01  4.250e-01  3.033e-05 
+  4.5000e-01  4.500e-01  3.467e-05 
+  4.7500e-01  4.750e-01  3.932e-05 
+  5.0000e-01  5.000e-01  4.427e-05 
+  5.2500e-01  5.250e-01  4.952e-05 
+  5.5000e-01  5.500e-01  5.507e-05 
+  5.7500e-01  5.750e-01  6.091e-05 
+  6.0000e-01  6.000e-01  6.704e-05 
+  6.2500e-01  6.250e-01  7.346e-05 
+  6.5000e-01  6.500e-01  8.017e-05 
+  6.7500e-01  6.750e-01  8.716e-05 
+  7.0000e-01  7.000e-01  9.444e-05 
+  7.2500e-01  7.250e-01  1.020e-04 
+  7.5000e-01  7.500e-01  1.098e-04 
+  7.7500e-01  7.750e-01  1.179e-04 
+  8.0000e-01  8.000e-01  1.263e-04 
+  8.2500e-01  8.250e-01  1.349e-04 
+  8.5000e-01  8.500e-01  1.438e-04 
+  8.7500e-01  8.750e-01  1.529e-04 
+  9.0000e-01  9.000e-01  1.624e-04 
+  9.2500e-01  9.250e-01  1.720e-04 
+  9.5000e-01  9.500e-01  1.819e-04 
+  9.7500e-01  9.750e-01  1.921e-04 
+  1.0000e+00  1.000e+00  2.025e-04 
+  1.0250e+00  1.025e+00  2.132e-04 
+  1.0500e+00  1.050e+00  2.241e-04 
+  1.0750e+00  1.075e+00  2.352e-04 
+  1.1000e+00  1.100e+00  2.466e-04 
+  1.1250e+00  1.125e+00  2.582e-04 
+  1.1500e+00  1.150e+00  2.701e-04 
+  1.1750e+00  1.175e+00  2.821e-04 
+  1.2000e+00  1.200e+00  2.944e-04 
+  1.2250e+00  1.225e+00  3.070e-04 
+  1.2500e+00  1.250e+00  3.197e-04 
+  1.2750e+00  1.275e+00  3.327e-04 
+  1.3000e+00  1.300e+00  3.459e-04 
+  1.3250e+00  1.325e+00  3.593e-04 
+  1.3500e+00  1.350e+00  3.729e-04 
+  1.3750e+00  1.375e+00  3.867e-04 
+  1.4000e+00  1.400e+00  4.008e-04 
+  1.4250e+00  1.425e+00  4.150e-04 
+  1.4500e+00  1.450e+00  4.295e-04 
+  1.4750e+00  1.475e+00  4.441e-04 
+  1.5000e+00  1.500e+00  4.590e-04 
+  1.5250e+00  1.525e+00  4.741e-04 
+  1.5500e+00  1.550e+00  4.893e-04 
+  1.5750e+00  1.575e+00  5.048e-04 
+  1.6000e+00  1.600e+00  5.204e-04 
+  1.6250e+00  1.625e+00  5.363e-04 
+  1.6500e+00  1.650e+00  5.523e-04 
+  1.6750e+00  1.675e+00  5.686e-04 
+  1.7000e+00  1.700e+00  5.850e-04 
+  1.7250e+00  1.725e+00  6.016e-04 
+  1.7500e+00  1.750e+00  6.184e-04 
+  1.7750e+00  1.775e+00  6.354e-04 
+  1.8000e+00  1.800e+00  6.526e-04 
+  1.8250e+00  1.825e+00  6.699e-04 
+  1.8500e+00  1.850e+00  6.874e-04 
+  1.8750e+00  1.875e+00  7.051e-04 
+  1.9000e+00  1.900e+00  7.230e-04 
+  1.9250e+00  1.925e+00  7.411e-04 
+  1.9500e+00  1.950e+00  7.593e-04 
+  1.9750e+00  1.975e+00  7.777e-04 
+  2.0000e+00  2.000e+00  7.963e-04 
+  2.0250e+00  2.025e+00  8.150e-04 
+  2.0500e+00  2.050e+00  8.339e-04 
+  2.0750e+00  2.075e+00  8.530e-04 
+  2.1000e+00  2.100e+00  8.723e-04 
+  2.1250e+00  2.125e+00  8.917e-04 
+  2.1500e+00  2.150e+00  9.112e-04 
+  2.1750e+00  2.175e+00  9.310e-04 
+  2.2000e+00  2.200e+00  9.509e-04 
+  2.2250e+00  2.225e+00  9.709e-04 
+  2.2500e+00  2.250e+00  9.911e-04 
+  2.2750e+00  2.275e+00  1.012e-03 
+  2.3000e+00  2.300e+00  1.032e-03 
+  2.3250e+00  2.325e+00  1.053e-03 
+  2.3500e+00  2.350e+00  1.073e-03 
+  2.3750e+00  2.375e+00  1.094e-03 
+  2.4000e+00  2.400e+00  1.115e-03 
+  2.4250e+00  2.425e+00  1.136e-03 
+  2.4500e+00  2.450e+00  1.157e-03 
+  2.4750e+00  2.475e+00  1.177e-03 
+  2.5000e+00  2.500e+00  1.197e-03 
+y
+
+          ***** job concluded
+ ******  
+ ** osfet model test
+
+ ****** job statistics summary tnom=  25.000 temp=  25.000 ******
+  
+ ******  Machine Information  ******
+ CPU:
+ model name	: Intel(R) Xeon(R) CPU E5-2430 v2 @ 2.50GHz
+ cpu MHz	: 2813.825
+ CPU(s)		: 24
+  
+ OS:
+ Linux version 4.18.0-553.16.1.el8_10.x86_64 (mockbuild@iad1-prod-build001.bld.equ.rockylinux.org) (gcc version 8.5.0 20210514 (Red Hat 8.5.0-22) (GCC)) #1 SMP Thu Aug 8 17:47:08 UTC 2024
+
+ System loadavg : 0.83 0.75 0.43 1/774 3028854
+
+
+  ******  HSPICE Threads Information  ******
+
+  Command Line Threads Count :     1
+  Available CPU Count        :    24
+  Actual Threads Count       :     1
+
+
+  ******  Circuit Statistics  ******
+  # nodes       =       8 # elements   =       4
+  # resistors   =       0 # capacitors =       0 # inductors   =       0
+  # mutual_inds =       0 # vccs       =       0 # vcvs        =       0
+  # cccs        =       0 # ccvs       =       0 # volt_srcs   =       3
+  # curr_srcs   =       0 # diodes     =       0 # bjts        =       0
+  # jfets       =       0 # mosfets    =       0 # U elements  =       0
+  # T elements  =       0 # W elements =       0 # B elements  =       0
+  # S elements  =       0 # P elements =       0 # va device   =       1
+  # vector_srcs =       0 # N elements =       0
+
+
+  ******  Runtime Statistics (seconds)  ******
+
+  analysis           time    # points   tot. iter  conv.iter
+  op point           0.00           1           0
+  dc sweep           0.88         242         537
+  readin             1.86
+  errchk             0.01
+  setup              0.01
+  output             0.00
+
+
+           peak memory used        492.91 megabytes
+           total cpu time            2.95 seconds
+           total elapsed time        3.24 seconds
+           job started at     21:38:04 08/17/2025
+           job ended   at     21:38:08 08/17/2025
+           job total runtime         3.24 seconds
+
+
+ lic: Release hspice token(s) 
+ lic: total license checkout elapse time:        0.27(s)
