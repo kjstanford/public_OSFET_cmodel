@@ -13,12 +13,12 @@ module osfet(d, g, s);
 
     parameter real 		version 		= 	0.00;                                     //      OSFET compact model version = 0.0.0
     // parameter real      Tjun            =   300.0                   from (0:inf);     //     Temperature [K] -- obsolete now
-    parameter real      mu_eff          =   0.0012                     from (0:inf);     //     Band mobility [m^2 / V s]
+    parameter real      mu_eff          =   0.002                     from (0:inf);     //     Band mobility [m^2 / V s]
     parameter real      W               =   2e-6                     from (0:inf);     //      OSFET Width [m]
     parameter real      Lch             =   6e-8                       from (0:inf);     //      Physicsl Gate Length [m]
-    parameter real      Cgch            =   0.0248                  from (0:inf);  //      Accumulation Capacitance [F/m^2]
-    parameter real      Cpar            =   1.488e-9                       from [0:inf);  //      Parasitic Capacitance [F/m]
-    parameter real      longVT          =   0.165                    from (-inf:inf);     //      Long Channel Vth [V]
+    parameter real      Cgch            =   0.0124                  from (0:inf);  //      Accumulation Capacitance [F/m^2]
+    parameter real      Cpar            =   0.744e-9                       from [0:inf);  //      Parasitic Capacitance [F/m]
+    parameter real      longVT          =   0.17                    from (-inf:inf);     //      Long Channel Vth [V]
     parameter real      alpha1          =   0.52                  from [0:inf);     // Tail state Vth shift
     parameter real      alpha2          =   0.05                   from (0:inf);     // Tail state spread
     parameter real      meff            =   0.3                   from (0:inf);     //    Electron effective mass
