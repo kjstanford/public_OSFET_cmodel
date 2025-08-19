@@ -7,11 +7,11 @@
   this software is strictly prohibited.
   Input File: osfet_model_run.sp                                                
   Command line options: /cad/synopsys/hspice/R-2020.12-SP1/hspice/linux64/hspice osfet_model_run.sp -o
-  Start time: Tue Aug 19 14:08:28 2025
+  Start time: Tue Aug 19 14:14:53 2025
  lic:  
  lic: FLEXlm: SDK_12.9.5 
  lic: USER:   kj2011               HOSTNAME: nanopower.stanford.edu 
- lic: HOSTID: "002590e70e02"       PID:      3121653 
+ lic: HOSTID: "002590e70e02"       PID:      3122254 
  lic: Using FLEXlm license file: 
  lic: 27000@cadlic0.stanford.edu 
  lic: Checkout 1 hspice 
@@ -19,34 +19,6 @@
  lic: 1(in_use)/200(total) FLOATING license(s) on SERVER 27000@cadlic0.stanford.edu 
  lic:   
  **info** *pvaI* current limit stacksize=8388608, set new limit stacksize=62914560
-
- **info** *pvaI* Module (osfet): 3 unexpanded port, 0 init, 173 behav, 11 contrib, 51/235 expr(s)
-
- **warning** *pvaW*        Variable 'Tj' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (osfet_potential_based_compact_model_v1.va:139)
-
- **info** *pvaI*        Has DIS(ST SB), 3/14 afCount, 0 MT, dlg, 2 node(s) maybe reduced, IO(0/1/1/1)
-
- **info** *pvaI*        0 gmdIsThreadSafe (ST SB)
-
- **info** *pvaI*        0 const-G and 0 const-C, Has switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
-
- **info** *pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
-
- **warning** *pvaW*        variable 'Vds' initialized but not used in RHS, deleted (osfet_potential_based_compact_model_v1.va:129)
-
- **warning** *pvaW*                   To relax this rule, use 'setenv PVA_KEEP_VARS 1' to keep variables for probing.
-
- **warning** *pvaW*        variable 'Vgs' initialized but not used in RHS, deleted (osfet_potential_based_compact_model_v1.va:127)
-
- **warning** *pvaW*        variable 'tt' initialized but not used in RHS, deleted (osfet_potential_based_compact_model_v1.va:145)
-
- **warning** *pvaW*        variable 'nphit' declared but not used in RHS, deleted (osfet_potential_based_compact_model_v1.va:104)
-
- **info** *pvaI*        For analog block, use $abstime() instead of $realtime().
-
- **info** *pvaI*        generated 2 flow node(s) during compilation.
-
- **info** *pvaI* #### Total 361 line-size(s), 51/235 expr(s), 11 contr(s), 0 init(s), 173 behav(s), 3 port(s)
 
  Loading pVA library osfet_model_run.pvadir/pvaRTL_linux64.so...
 1****** PrimeSim HSPICE -- R-2020.12-SP1 linux64 (Apr 10 2021 6983340) ******
@@ -62,7 +34,7 @@
 
  **info** *pvaI*        termCount=9 diwSize=50 probeSize=74 Qsize=4 Isize=7
 
- End of GMD creation on Tue Aug 19 14:08:29 2025	GTM/In-use: 4.3750/2.8411 MB
+ End of GMD creation on Tue Aug 19 14:14:53 2025	GTM/In-use: 3.3750/2.2700 MB
 
 
   
@@ -74,10 +46,10 @@
   Opening plot unit= 15
  file=osfet_model_run.pa0
 
- End of pVA setup    on Tue Aug 19 14:08:29 2025	GTM/In-use: 4.3750/2.8817 MB
+ End of pVA setup    on Tue Aug 19 14:14:54 2025	GTM/In-use: 3.3750/2.3106 MB
 
 
- Begin of pVA simulation on Tue Aug 19 14:08:29 2025	GTM/In-use: 4.3750/2.8817 MB
+ Begin of pVA simulation on Tue Aug 19 14:14:54 2025	GTM/In-use: 3.3750/2.3106 MB
 
 
  temperature = 2.981500e+02
@@ -455,13 +427,13 @@ y
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2430 v2 @ 2.50GHz
- cpu MHz	: 3000.000
+ cpu MHz	: 2800.062
  CPU(s)		: 24
   
  OS:
  Linux version 4.18.0-553.16.1.el8_10.x86_64 (mockbuild@iad1-prod-build001.bld.equ.rockylinux.org) (gcc version 8.5.0 20210514 (Red Hat 8.5.0-22) (GCC)) #1 SMP Thu Aug 8 17:47:08 UTC 2024
 
- System loadavg : 11.17 10.58 10.04 13/826 3121686
+ System loadavg : 11.37 10.94 10.38 14/822 3122262
 
 
   ******  HSPICE Threads Information  ******
@@ -487,20 +459,20 @@ y
 
   analysis           time    # points   tot. iter  conv.iter
   op point           0.00           1           0
-  dc sweep           0.33         242         533
-  readin             1.22
+  dc sweep           0.17         242         533
+  readin             0.35
   errchk             0.01
   setup              0.01
   output             0.00
 
 
-           peak memory used        497.92 megabytes
-           total cpu time            1.58 seconds
-           total elapsed time        1.66 seconds
-           job started at     14:08:28 08/19/2025
-           job ended   at     14:08:29 08/19/2025
-           job total runtime         1.66 seconds
+           peak memory used        496.77 megabytes
+           total cpu time            0.55 seconds
+           total elapsed time        0.66 seconds
+           job started at     14:14:53 08/19/2025
+           job ended   at     14:14:54 08/19/2025
+           job total runtime         0.66 seconds
 
 
  lic: Release hspice token(s) 
- lic: total license checkout elapse time:        0.07(s)
+ lic: total license checkout elapse time:        0.09(s)

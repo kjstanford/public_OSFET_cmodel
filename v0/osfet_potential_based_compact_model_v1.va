@@ -17,7 +17,7 @@ module osfet(d, g, s);
     parameter real      W               =   2e-6                     from (0:inf);     //      OSFET Width [m]
     parameter real      Lch             =   6e-8                       from (0:inf);     //      Physicsl Gate Length [m]
     parameter real      Cgch            =   0.0124                  from (0:inf);  //      Accumulation Capacitance [F/m^2]
-    parameter real      Cpar            =   0.744e-9                       from [0:inf);  //      Parasitic Capacitance [F/m]
+    parameter real      Cpar            =   0.0124*60e-9            from [0:inf);  //      Parasitic Capacitance [F/m]
     parameter real      longVT          =   0.17                    from (-inf:inf);     //      Long Channel Vth [V]
     parameter real      alpha1          =   0.52                  from [0:inf);     // Tail state Vth shift
     parameter real      alpha2          =   0.05                   from (0:inf);     // Tail state spread
