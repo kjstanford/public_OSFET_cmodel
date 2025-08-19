@@ -101,7 +101,7 @@ module osfet(d, g, s);
     endfunction
 
     real Vds, Vgs, Vgsi, Vdsi, Vgsraw, Vgdraw, Vsf, Vdf ;
-    real Leff, Rs, Rd, idir, phit, kT, hbar, tt, n, nphit, mD0, N2D, Ceff ;
+    real Leff, Rs, Rd, idir, phit, kT, hbar, tt, n, nphit, mD0, N2D, Ceff, Tj ;
     real Vtp, etaS, etaD, FS, FD, Qx0, QxL, dVTS, dVTD, alpha1_corr ;
     real Qintx0, QintxL, Id1, Id2, Id ;
     real A, B, QG, QD, QS, Qdi, Qsi ;
