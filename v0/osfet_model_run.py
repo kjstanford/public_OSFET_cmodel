@@ -22,6 +22,7 @@ start_directory = os.path.join(os.path.dirname(os.getcwd()), "benchmarking_data"
 
 # List to store relative paths to all CSV files
 csv_files = []
+# xlsx_files = []
 
 # Walk through the directory and subdirectories
 for root, dirs, files in os.walk(os.path.join(start_directory)):
@@ -33,6 +34,13 @@ for root, dirs, files in os.walk(os.path.join(start_directory)):
                 continue
             # Add to the dictionary
             csv_files.append(absolute_path)
+        # if file.endswith('.xlsx'):
+        #     # Get the absolute path of the file
+        #     absolute_path = os.path.abspath(os.path.join(root, file))
+        #     if 'IGNORE' in absolute_path:
+        #         continue
+        #     # Add to the dictionary
+        #     xlsx_files.append(absolute_path)
 
 def get_params(file):
     RDL_match = re.search(r'R\[(\d+)\]_D\[(\d+)\]_L\[(\d+)\]', file)
@@ -66,13 +74,23 @@ yid = [id['f'][::2] for id in Id_all]
 # xvg += [vg['b'] for vg in Vg_all]
 # yid += [id['b'] for id in Id_all]
 
+# exp_data_fname = os.path.join(start_directory, 'jimin_iedm25_hero', 'Herodevice_Idvg.xlsx')
+# # Replace 'your_file.xlsx' with your actual filename
+# df = pd.read_excel(exp_data_fname, engine='openpyxl', header=None)
+# # print(df.head())  # Shows the first five rows
+
+# xvg = [df[0].to_numpy(), df[0].to_numpy()]
+# yid = [df[1].to_numpy(), df[2].to_numpy()]
+
+# # raise Exception
+
 Vglin = xvg[-2]
 Idlin = yid[-2]
 Vdlin = 50e-3
 T = 300
 PHIT = kB*300
 BETA, nSSlin, VTONlin, VTOFFlin, TRlin = calculate_VTON_VTOFF(Vglin, Idlin*1e6/2, Vdlin, PHIT, Id_SS_limits=[1e-5, 1e-1])
-print(BETA, nSSlin, VTONlin, VTOFFlin, TRlin)
+print(BETA, PHIT*1.4433*log(10)*1e3, VTONlin, VTOFFlin, TRlin)
 
 # c = ['r', 'b']
 # s = ['solid']*2
