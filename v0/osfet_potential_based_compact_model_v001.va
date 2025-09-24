@@ -66,12 +66,11 @@ module osfet(d, g, s);
             a = aa;
             b = bb;
             c = cc;
-            TOLERANCE = 1e-10;
+            TOLERANCE = 1e-5;
             term = a * b * x / c;
             value = 1.0 + term;
             n = 1;
-            // while ( abs( term ) > TOLERANCE ) begin
-            while ( n < 40 ) begin
+            while ( abs( term ) > TOLERANCE ) begin
                 a = a + 1;
                 b = b + 1;
                 c = c + 1;
