@@ -137,7 +137,7 @@ module osfet(d, g, s);
         // Initialization of variables
         // Tj = Tjun ;
         Tj = $temperature ;
-        $display ("temperature = %e", Tj) ;
+        // $display ("temperature = %e", Tj) ;
         phit = `P_K * Tj / `P_Q ; // Thermal voltage [V]
         // $display ("phit = %f", phit) ;
         kT = `P_K * Tj ;  // Thermal energy [J]
