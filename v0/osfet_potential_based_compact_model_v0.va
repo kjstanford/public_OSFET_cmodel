@@ -1,4 +1,8 @@
-// VerilogA for osfet -- useful for long channel fets -- currently has some micro-discontinuities due to self-consistent solving (need to fix)
+// VerilogA for osfet -- entirely DD based -- useful for long channel fets -- can be used for short channel FETs as well, since the mobility of OSFETs is low i.e. diffusive transport still holds
+// -- currently has some micro-discontinuities due to self-consistent solving (will be fixed in future versions)
+// Author: Koustav Jana, Stanford University
+// Date: 24th September, 2025
+// Email: kj2011@stanford.edu
 
 `include "constants.vams"
 `include "disciplines.vams"
@@ -137,7 +141,7 @@ module osfet(d, g, s);
         // Initialization of variables
         // Tj = Tjun ;
         Tj = $temperature ;
-        $display ("temperature = %e", Tj) ;
+        // $display ("temperature = %e", Tj) ;
         phit = `P_K * Tj / `P_Q ; // Thermal voltage [V]
         // $display ("phit = %f", phit) ;
         kT = `P_K * Tj ;  // Thermal energy [J]
