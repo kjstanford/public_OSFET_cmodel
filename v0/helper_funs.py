@@ -103,7 +103,7 @@ def logy_lin_plot_dual(x1, y1, x2, y2, c1, c2, s1, s2, a1=[1], a2=[1], mask=[Tru
     if not ylim == 0:
         ax.set(ylim=ylim)
     # plt.figure(figsize=(1,1))
-    plt.grid()
+    # plt.grid()
     # plt.show(block=False)
     plt.savefig(fname=figname)
 
@@ -132,7 +132,7 @@ def lin_plot(x, y, c, s, mask=[True], m=[None], l=[None], a=[1], xlim=0, ylim=0,
     if not ylim == 0:
         ax.set(ylim=ylim)
     # plt.figure(figsize=(1,1))
-    plt.grid()
+    # plt.grid()
     # plt.show(block=False)
     plt.savefig(fname=figname)
 
@@ -162,7 +162,7 @@ def logx_plot(x, y, c, s, mask=[True], m=[None], l=[None], a=[1], cmap=False, xl
     if not ylim == 0:
         ax.set(ylim=ylim)
     # plt.figure(figsize=(1, 1))
-    plt.grid()
+    # plt.grid()
     # plt.show(block=False)
     plt.savefig(fname=figname)
 
@@ -192,7 +192,7 @@ def logy_plot(x, y, c, s, mask=[True], m=[None], l=[None], a=[1], cmap=False, xl
     if not ylim == 0:
         ax.set(ylim=ylim)
     # plt.figure(figsize=(1, 1))
-    plt.grid()
+    # plt.grid()
     if savemode:
         plt.savefig(fname=figname)
     else:
@@ -235,7 +235,7 @@ def logy_lin_plot(x, y, c, s, mask=[True], m=[None], l=[None], cmap=False, a=[1]
     if not ylim == 0:
         ax.set(ylim=ylim)
     # plt.figure(figsize=(1,1))
-    plt.grid()
+    # plt.grid()
     # plt.show(block=False)
     plt.savefig(fname=figname)
 
@@ -280,7 +280,7 @@ def lin_lin_plot(x1, y1, x2, y2, c1, c2, s1, s2, a1=[1], a2=[1], mask=[True], m1
     if not ylim == 0:
         ax.set(ylim=ylim)
     # plt.figure(figsize=(1,1))
-    plt.grid()
+    # plt.grid()
     # plt.show(block=False)
     plt.savefig(fname=figname)
 

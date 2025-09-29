@@ -1,6 +1,33 @@
+# alias python3=/home/kj2011/python/Python-3.12.7/Python-3.12.7/Python/bin/python3
 from helper_funs import *
 from TLM_OSFETs import *
 import re
+import yaml
+import shutil
+
+""" important functions defined below """
+def replace_params(text, params):
+    pattern = re.compile(r'@(\w+)@')
+
+    def is_number(s):
+        # Helper to check if s can be interpreted as a number
+        try:
+            float(s)
+            return True
+        except ValueError:
+            return False
+
+    def replacer(match):
+        key = match.group(1)
+        value = params.get(key, match.group(0))
+
+        # Only add quotes if it's a string and NOT a number
+        if isinstance(value, str) and not is_number(value):
+            if not (value.startswith('"') and value.endswith('"')) and not (value.startswith("'") and value.endswith("'")):
+                value = f'"{value}"'
+        return str(value)
+
+    return pattern.sub(replacer, text)
 
 def generate_figname():
     ii = 0
@@ -20,48 +47,7 @@ def get_sweeps(X):
 # Define the directory to start the search (current working directory)
 start_directory = os.path.join(os.path.dirname(os.getcwd()), "benchmarking_data")
 
-# List to store relative paths to all CSV files
-csv_files = []
-# xlsx_files = []
-
-# Walk through the directory and subdirectories
-for root, dirs, files in os.walk(os.path.join(start_directory)):
-    for file in files:
-        if file.endswith('.csv'):
-            # Get the absolute path of the file
-            absolute_path = os.path.abspath(os.path.join(root, file))
-            if 'IGNORE' in absolute_path:
-                continue
-            # Add to the dictionary
-            csv_files.append(absolute_path)
-        # if file.endswith('.xlsx'):
-        #     # Get the absolute path of the file
-        #     absolute_path = os.path.abspath(os.path.join(root, file))
-        #     if 'IGNORE' in absolute_path:
-        #         continue
-        #     # Add to the dictionary
-        #     xlsx_files.append(absolute_path)
-
-def get_params(file):
-    RDL_match = re.search(r'R\[(\d+)\]_D\[(\d+)\]_L\[(\d+)\]', file)
-    
-    extracted_params = {
-        'R': int(RDL_match.group(1)) if RDL_match else None,
-        'D': int(RDL_match.group(2)) if RDL_match else None,
-        'L': int(RDL_match.group(3)) if RDL_match else None
-    }
-    return extracted_params
-
-exp_dict = {'R': 4, 'D': 6, 'L': 60}
-for cf in csv_files:
-    if not 'IdVg_Vd_par' in cf:
-        continue
-    cf_dict = get_params(cf)
-    print(cf, cf_dict)
-    if exp_dict == cf_dict:
-        break
-
-exp_data_fname = cf
+exp_data_fname = os.path.join(start_directory, "chihsin_ito_v3", "IdVg_Vd_par [R[4]_D[6]_L[60] ; ].csv")
 print(exp_data_fname)
 pd_data_set, N1 = agilent_csv_cleaner(fname=exp_data_fname)
 if len(pd_data_set) > 2:
@@ -71,18 +57,6 @@ Vg_all = [get_sweeps(d[' Vg'].to_numpy()) for d in pd_data_set[:2]]
 Id_all = [get_sweeps(d[' absIs'].to_numpy()) for d in pd_data_set[:2]]
 xvg = [vg['f'][::2] for vg in Vg_all]
 yid = [id['f'][::2] for id in Id_all]
-# xvg += [vg['b'] for vg in Vg_all]
-# yid += [id['b'] for id in Id_all]
-
-# exp_data_fname = os.path.join(start_directory, 'jimin_iedm25_hero', 'Herodevice_Idvg.xlsx')
-# # Replace 'your_file.xlsx' with your actual filename
-# df = pd.read_excel(exp_data_fname, engine='openpyxl', header=None)
-# # print(df.head())  # Shows the first five rows
-
-# xvg = [df[0].to_numpy(), df[0].to_numpy()]
-# yid = [df[1].to_numpy(), df[2].to_numpy()]
-
-# # raise Exception
 
 Vglin = xvg[-2]
 Idlin = yid[-2]
@@ -90,27 +64,48 @@ Vdlin = 50e-3
 T = 300
 PHIT = kB*300
 BETA, nSSlin, VTONlin, VTOFFlin, TRlin = calculate_VTON_VTOFF(Vglin, Idlin*1e6/2, Vdlin, PHIT, Id_SS_limits=[1e-5, 1e-1])
-print(BETA, PHIT*1.4433*log(10)*1e3, VTONlin, VTOFFlin, TRlin)
+print(BETA, PHIT*nSSlin*log(10)*1e3, VTONlin, VTOFFlin, TRlin)
 
-# c = ['r', 'b']
-# s = ['solid']*2
-# a = [1]*2
-# mask = [True, True]
+""" Load parameters from .yaml file """
+with open(os.path.join(start_directory, "chihsin_ito_v3", "yaml_params", "IdVg_Vd_par [R[4]_D[6]_L[60] ; ].yaml"), 'r') as f:
+    params = yaml.load(f, Loader=yaml.FullLoader)
 
-# logy_lin_plot_dual(x1=xvg, y1=[id*1e6/2 for id in yid], x2=xvg, y2=[id*1e6/2 for id in yid], c1=c, c2=c, s1=s, s2=s, a1=a, a2=a, mask=mask, lw=4.0, xlabel="$\mathbf{Vg [V]}$", ylabel="$\mathbf{Id [uA/um]}$", figname=generate_figname())
+sp_template_path = os.path.join(os.getcwd(), params["sp_template_path"])
+final_runfile = "osfet_model_run"
+sp_final_runfile_path = os.path.join(os.getcwd(), f"{final_runfile}.sp")
 
+""" create the hspice netlist + testbench """
+# Read the template file
+with open(sp_template_path, 'r') as file:
+    text = file.read()
+
+# Replace placeholders with values from params
+new_text = replace_params(text, params)
+
+# create the final sp runfile
+with open(sp_final_runfile_path, 'w') as file:
+    file.write(new_text)
+
+""" run hspice in a separate directory """
+sp_run_dir = "sp_run_tmp"
+if not os.path.exists(os.path.join(os.getcwd(), sp_run_dir)):
+    os.makedirs(os.path.join(os.getcwd(), sp_run_dir))
+
+shutil.copy(sp_final_runfile_path, os.path.join(os.getcwd(), sp_run_dir, f"{final_runfile}.sp"))
+shutil.copy(params["va_model_path"], os.path.join(os.getcwd(), sp_run_dir, os.path.basename(params["va_model_path"])))
+os.chdir(os.path.join(os.getcwd(), sp_run_dir))
+print("Current working directory changed to:", os.getcwd())
 sys(f'hspice osfet_model_run.sp -o')
+os.chdir(os.path.dirname(os.getcwd()))
+print("Current working directory restored to:", os.getcwd())
+shutil.copy(os.path.join(os.getcwd(), sp_run_dir, f"{final_runfile}.lis"), os.path.join(os.getcwd(), f"{final_runfile}.lis"))
 
+""" parse the .lis file and plot """
 main_directory_path = os.path.dirname(os.path.realpath(__file__))
 num_datasets, df_list = read_lis_modified(fname=os.path.join(main_directory_path, "osfet_model_run.lis"), sweep_variable='vgate')
 print(df_list[0].columns)
 yid += [df['current_vs'].to_numpy() for df in df_list]
 xvg += [df['voltage_g'].to_numpy() for df in df_list]
-
-# c = ['r']
-# s = ['solid']
-# a = [0.5, 1]
-# logy_lin_plot_dual(x1=vg_list, y1=id_list, x2=vg_list, y2=id_list, c1=c, c2=c, s1=s, s2=s, a1=a, a2=a, lw=4.0, figname=generate_figname())
 
 c = ['r', 'b']
 s = ['None']*2+['solid']*2
