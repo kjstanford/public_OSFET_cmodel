@@ -1,3 +1,0 @@
-vvdd vdd 0 DC='vsup'
-
-.END
