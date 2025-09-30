@@ -47,27 +47,34 @@ def get_sweeps(X):
 # Define the directory to start the search (current working directory)
 start_directory = os.path.join(os.path.dirname(os.getcwd()), "benchmarking_data")
 
-exp_data_fname = os.path.join(start_directory, "chihsin_ito_v3", "IdVg_Vd_par [R[4]_D[6]_L[60] ; ].csv")
+# exp_data_fname = os.path.join(start_directory, "chihsin_ito_v3", "IdVg_Vd_par [R[4]_D[6]_L[60] ; ].csv")
+exp_data_fname = os.path.join(start_directory, "chihsin_ito_W_L_Lov_60nm", "ITO_Wch_60_25_02.csv")
 print(exp_data_fname)
 pd_data_set, N1 = agilent_csv_cleaner(fname=exp_data_fname)
 if len(pd_data_set) > 2:
     raise Exception('More than 2 datasets detected')
 
-Vg_all = [get_sweeps(d[' Vg'].to_numpy()) for d in pd_data_set[:2]]
-Id_all = [get_sweeps(d[' absIs'].to_numpy()) for d in pd_data_set[:2]]
+# Vg_all = [get_sweeps(d[' Vg'].to_numpy()) for d in pd_data_set[:2]]
+# Id_all = [get_sweeps(d[' absIs'].to_numpy()) for d in pd_data_set[:2]]
+Vg_all = [get_sweeps(d[' VG'].to_numpy()) for d in pd_data_set[:2]]
+Id_all = [get_sweeps(d[' IDS'].to_numpy()) for d in pd_data_set[:2]]
 xvg = [vg['f'][::2] for vg in Vg_all]
 yid = [id['f'][::2] for id in Id_all]
 
-Vglin = xvg[-2]
-Idlin = yid[-2]
-Vdlin = 50e-3
+# Vglin = xvg[-2]
+# Idlin = yid[-2]
+# Vdlin = 50e-3
+Vglin = xvg[-1]
+Idlin = yid[-1]
+Vdlin = 100e-3
 T = 300
 PHIT = kB*300
 BETA, nSSlin, VTONlin, VTOFFlin, TRlin = calculate_VTON_VTOFF(Vglin, Idlin*1e6/2, Vdlin, PHIT, Id_SS_limits=[1e-5, 1e-1])
 print(BETA, PHIT*nSSlin*log(10)*1e3, VTONlin, VTOFFlin, TRlin)
 
 """ Load parameters from .yaml file """
-with open(os.path.join(start_directory, "chihsin_ito_v3", "yaml_params", "IdVg_Vd_par [R[4]_D[6]_L[60] ; ].yaml"), 'r') as f:
+# with open(os.path.join(start_directory, "chihsin_ito_v3", "yaml_params", "IdVg_Vd_par [R[4]_D[6]_L[60] ; ].yaml"), 'r') as f:
+with open(os.path.join(start_directory, "chihsin_ito_W_L_Lov_60nm", "ITO_Wch_60_25_02.yaml"), 'r') as f:
     params = yaml.load(f, Loader=yaml.FullLoader)
 
 sp_template_path = os.path.join(os.getcwd(), params["sp_template_path"])
@@ -107,9 +114,9 @@ print(df_list[0].columns)
 yid += [df['current_vs'].to_numpy() for df in df_list]
 xvg += [df['voltage_g'].to_numpy() for df in df_list]
 
-c = ['r', 'b']
+c = ['r', 'b', 'b', 'r']
 s = ['None']*2+['solid']*2
 m = ['o']*2+[None]*2
 a = [1]*2
-mask = [True, True]
-logy_lin_plot_dual(x1=xvg, y1=[id*1e6/2 for id in yid], x2=xvg, y2=[id*1e6/2 for id in yid], c1=c, c2=c, s1=s, s2=s, a1=a, a2=a, m1=m, m2=m, mask=mask, lw=4.0, xlabel="$\mathbf{Vg [V]}$", ylabel="$\mathbf{Id [uA/um]}$", figname=generate_figname(), ylim=[1e-6, 1e3])
+mask = [True, True, True, True]
+logy_lin_plot_dual(x1=xvg, y1=[id*1e6/2 for id in yid], x2=xvg, y2=[id*1e6/2 for id in yid], c1=c, c2=c, s1=s, s2=s, a1=a, a2=a, m1=m, m2=m, mask=mask, lw=4.0, xlabel="$\mathbf{Vg [V]}$", ylabel="$\mathbf{Id [uA/um]}$", figname=generate_figname(), ylim=[1e-6, 1.5], xlim=[0, 1.3])

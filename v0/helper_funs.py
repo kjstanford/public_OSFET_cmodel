@@ -102,6 +102,7 @@ def logy_lin_plot_dual(x1, y1, x2, y2, c1, c2, s1, s2, a1=[1], a2=[1], mask=[Tru
         ax.set(xlim=xlim)
     if not ylim == 0:
         ax.set(ylim=ylim)
+        ax_twin.set(ylim=ylim)
     # plt.figure(figsize=(1,1))
     # plt.grid()
     # plt.show(block=False)
@@ -382,6 +383,12 @@ def lower_energy_levels(H, num_levels):
     E, V = las.eigsh(H, k=num_levels, which='SM')
     return E, V
 
+def try_convert_to_float(X): 
+    try: 
+        return float(X) 
+    except (ValueError, TypeError): 
+        return float('nan')
+
 def agilent_csv_cleaner(fname):
     full_data_set = []
     with open(fname, mode='r') as csv_file:
@@ -408,14 +415,19 @@ def agilent_csv_cleaner(fname):
             N2 = int(row[1])
             print('Dimension2:', N2)
             line_count += 1
-            temp_data = [[[str(X) for X in full_data_set[line_count][1:9]]] for ii in range(N2)]
+            temp_data = [[[str(X) for X in full_data_set[line_count][1:]]] for ii in range(N2)]
             line_count += 1
             for ii in range(N2):
                 for elem in range(N1):
                     # print(full_data_set[line_count])
-                    temp_data[ii].append([float(X) for X in full_data_set[line_count][1:9]])
-                    line_count += 1
-            data_set += temp_data
+                    try:
+                        temp_data[ii].append([try_convert_to_float(X) for X in full_data_set[line_count][1:]])
+                        line_count += 1
+                    except IndexError:
+                        temp_data = None
+                        break
+            if not temp_data == None:
+                data_set += temp_data
     print(f'Number of datasets: {len(data_set)}')
 
     pd_data_set = [pd.DataFrame(X[1:], columns=X[0]) for X in data_set]
