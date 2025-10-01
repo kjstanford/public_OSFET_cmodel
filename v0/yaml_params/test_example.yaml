@@ -1,0 +1,26 @@
+Temp_in_C: 25.0
+va_model_path: osfet_potential_based_compact_model_v0.va
+va_rfet_params_path: ../model_card/rfet_params_v0.inc
+va_wfet_params_path: ../model_card/wfet_params_v0.inc
+vdd: 0.9
+vss: 0
+vpp: 1.2
+vnn: 0
+Rwwl: 100
+Cwwl: 1e-15
+Rwbl: 100
+Cwbl: 1e-15
+Rrwl: 100
+Crwl: 1e-15
+Rrbl: 100
+Crbl: 1e-15
+sim_time: 40e-9
+timestep: 1e-12
+Nrows: 32
+Ncols: 32
+selected_wl_idx: 31
+wword: 1
+wwl_pwl_list: 0 0 1e-9 0 1.1e-9 1 11.1e-9 1 11.2e-9 0 40e-9 0
+# rwl_pwl_list: 0 1 20e-9 1 20.1e-9 0 30.1e-9 0 30.2e-9 1 40e-9 1
+rwl_pwl_list: 0 0 20e-9 0 20.1e-9 1 30.1e-9 1 30.2e-9 0 40e-9 0
+wbl_pwl_list: 0 0 1e-9 0 1.1e-9 1 12.1e-9 1 12.2e-9 0 40e-9 0

@@ -1,0 +1,11 @@
+** gc array model
+
+.TEMP @Temp_in_C@
+.OPTION
++ ARTIST=2
++ INGOLD=2
++ PARHIER=LOCAL
++ PSF=2
++ ACCURATE=1
+
+.HDL @va_model_path@

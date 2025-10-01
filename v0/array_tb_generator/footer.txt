@@ -1,0 +1,3 @@
+.TRAN 'timestep' 'sim_time'
+vdd vdd 0 DC='vdd'
+.END

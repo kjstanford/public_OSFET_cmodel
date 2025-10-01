@@ -1,0 +1,17 @@
+.INC @va_rfet_params_path@
+.INC @va_wfet_params_path@
+
+.PARAM vdd = @vdd@
+.PARAM vss = @vss@
+.PARAM vpp = @vpp@
+.PARAM vnn = @vnn@
+.PARAM Rwwl = @Rwwl@
+.PARAM Cwwl = @Cwwl@
+.PARAM Rwbl = @Rwbl@
+.PARAM Cwbl = @Cwbl@
+.PARAM Rrwl = @Rrwl@
+.PARAM Crwl = @Crwl@
+.PARAM Rrbl = @Rrbl@
+.PARAM Crbl = @Crbl@
+.PARAM sim_time = @sim_time@
+.PARAM timestep = @timestep@

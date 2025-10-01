@@ -1,0 +1,18 @@
+.SUBCKT wos_ros_gc wwl wbl rwl rbl sn
+
+    xos wbl wwl sn osfet
+    + W=W_write mu_eff=mu_eff_write Lch=Lch_write Cgch=Cgch_write Cpar=Cpar_write longVT=longVT_write alpha1=alpha1_write alpha2=alpha2_write meff=meff_write
+    + rsd_mode=rsd_mode_write Rs0=Rs0_write Rd0=Rd0_write delta=delta_write rollVT=rollVT_write n0=n0_write nd=nd_write type=type_write
+
+    xosr rbl sn rwl osfet
+    + W=W_read mu_eff=mu_eff_read Lch=Lch_read Cgch=Cgch_read Cpar=Cpar_read longVT=longVT_read alpha1=alpha1_read alpha2=alpha2_read meff=meff_read
+    + rsd_mode=rsd_mode_read Rs0=Rs0_read Rd0=Rd0_read delta=delta_read rollVT=rollVT_read n0=n0_read nd=nd_read type=type_read
+
+.ENDS
+
+.SUBCKT rc_unit rc_in rc_out R0=1e2 C0=1e-15
+
+    r_unit rc_in rc_out R=R0
+    c_unit rc_out 0 C=C0
+
+.ENDS rc_unit
