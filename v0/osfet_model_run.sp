@@ -39,6 +39,7 @@
 +    INGOLD=2
 +    PARHIER=LOCAL
 +    PSF=2
++    POST=2
 
 .HDL "osfet_potential_based_compact_model_v0.va"
 

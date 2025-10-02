@@ -39,6 +39,7 @@
 +    INGOLD=2
 +    PARHIER=LOCAL
 +    PSF=2
++    POST=2
 
 .HDL @va_model_path@
 

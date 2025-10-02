@@ -4,6 +4,7 @@ from TLM_OSFETs import *
 import re
 import yaml
 import shutil
+# from gc_array_tr_process import *
 
 """ important functions defined below """
 def replace_params(text, params):
@@ -48,6 +49,7 @@ binary_str = np.binary_repr(params['wword'])[-Ncols:].zfill(Ncols)
 wword = np.array(list(binary_str)).astype(int) # array of length Ncols, 1 to write 1, 0 to write 0
 print(f"wword: {wword}")
 vsn_init = np.zeros((Nrows, Ncols)).astype(int) # 2D array of size Nrows x Ncols, initial voltages of each storage node
+vsn_init[Nrows-1, Ncols-1] = 0 # set the last cell initial vsn
 
 header_path = os.path.join(start_directory, "array_tb_generator", "header.txt")
 read_params_path = os.path.join(start_directory, "array_tb_generator", "read_params.txt")
@@ -113,6 +115,7 @@ final_text += footer_text
 # print(final_text)
 
 final_run_file = 'gc_array'
+sim_out_file = 'rest_0'
 with open(f"{final_run_file}.sp", 'w') as fp:
     fp.write(final_text)
 fp.close()
@@ -126,7 +129,8 @@ shutil.copy(f"{final_run_file}.sp", os.path.join(os.getcwd(), sp_run_dir, f"{fin
 shutil.copy(params["va_model_path"], os.path.join(os.getcwd(), sp_run_dir, os.path.basename(params["va_model_path"])))
 os.chdir(os.path.join(os.getcwd(), sp_run_dir))
 print("Current working directory changed to:", os.getcwd())
-sys(f'hspice {final_run_file}.sp -o')
+sys(f'hspice {final_run_file}.sp -o {sim_out_file}')
 os.chdir(os.path.dirname(os.getcwd()))
 print("Current working directory restored to:", os.getcwd())
-shutil.copy(os.path.join(os.getcwd(), sp_run_dir, f"{final_run_file}.lis"), os.path.join(os.getcwd(), f"{final_run_file}.lis"))
+# shutil.copy(os.path.join(os.getcwd(), sp_run_dir, f"{sim_out_file}.lis"), os.path.join(os.getcwd(), f"{sim_out_file}.lis"))
+# shutil.copy(os.path.join(os.getcwd(), sp_run_dir, f"{sim_out_file}.tr0"), os.path.join(os.getcwd(), f"{sim_out_file}.tr0"))

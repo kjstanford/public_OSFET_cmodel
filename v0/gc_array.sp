@@ -7,6 +7,7 @@
 + PARHIER=LOCAL
 + PSF=2
 + ACCURATE=1
++ POST=2
 
 .HDL "osfet_potential_based_compact_model_v0.va"
 .INC "../model_card/rfet_params_v0.inc"
