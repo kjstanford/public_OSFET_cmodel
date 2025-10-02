@@ -17,21 +17,21 @@ module osfet(d, g, s);
 
     parameter real 		version 		= 	0.00;                                     //      OSFET compact model version = 0.0.0
     // parameter real      Tjun            =   300.0                   from (0:inf);     //     Temperature [K] -- obsolete now
-    parameter real      mu_eff          =   0.002                     from (0:inf);     //     Band mobility [m^2 / V s]
-    parameter real      W               =   2e-6                     from (0:inf);     //      OSFET Width [m]
+    parameter real      mu_eff          =   0.0012                     from (0:inf);     //     Band mobility [m^2 / V s]
+    parameter real      W               =   6e-8                     from (0:inf);     //      OSFET Width [m]
     parameter real      Lch             =   6e-8                       from (0:inf);     //      Physicsl Gate Length [m]
     parameter real      Cgch            =   0.0124                  from (0:inf);  //      Accumulation Capacitance [F/m^2]
     parameter real      Cpar            =   0.0124*60e-9            from [0:inf);  //      Parasitic Capacitance [F/m]
-    parameter real      longVT          =   0.17                    from (-inf:inf);     //      Long Channel Vth [V]
-    parameter real      alpha1          =   0.52                  from [0:inf);     // Tail state Vth shift
+    parameter real      longVT          =   0.43                    from (-inf:inf);     //      Long Channel Vth [V]
+    parameter real      alpha1          =   0.6                  from [0:inf);     // Tail state Vth shift
     parameter real      alpha2          =   0.05                   from (0:inf);     // Tail state spread
     parameter real      meff            =   0.3                   from (0:inf);     //    Electron effective mass
     parameter real      rsd_mode        =   1                         from [0:inf);       // 0 for no extrinsic series resistance, 1 for extrinsic series resistance
     parameter real      Rs0             =   200.0e-6                   from (0:inf);     //   Source-side series resistance
     parameter real      Rd0             =   200.0e-6                   from (0:inf);     //   Drain-side series resistance
-    parameter real      delta           =   0.06                   from [0:inf);       //     DIBL factor [V/V]
+    parameter real      delta           =   0.09                   from [0:inf);       //     DIBL factor [V/V]
     parameter real      rollVT          =   0.0                   from [0:inf);       //     Vth rolloff [V]
-    parameter real      n0              =   1.4433                 from [1:inf);     //      Subthreshold Swing Factor
+    parameter real      n0              =   1.8                 from [1:inf);     //      Subthreshold Swing Factor
     parameter real      nd              =   0.0                  from [0:inf);     //      Punch-through Factor
     parameter real 	    type 		    =   1 			         from [-1 : 1] ;   //	type of transistor. nFET type=1; pFET type=-1
 

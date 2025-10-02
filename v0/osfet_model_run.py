@@ -106,6 +106,7 @@ sys(f'hspice osfet_model_run.sp -o')
 os.chdir(os.path.dirname(os.getcwd()))
 print("Current working directory restored to:", os.getcwd())
 shutil.copy(os.path.join(os.getcwd(), sp_run_dir, f"{final_runfile}.lis"), os.path.join(os.getcwd(), f"{final_runfile}.lis"))
+shutil.copy(os.path.join(os.getcwd(), sp_run_dir, f"{final_runfile}.sw0"), os.path.join(os.getcwd(), f"{final_runfile}.sw0"))
 
 """ parse the .lis file and plot """
 main_directory_path = os.path.dirname(os.path.realpath(__file__))
