@@ -115,7 +115,7 @@ final_text += footer_text
 # print(final_text)
 
 final_run_file = 'gc_array'
-sim_out_file = 'rest_0'
+sim_out_file = 'gc_array'
 with open(f"{final_run_file}.sp", 'w') as fp:
     fp.write(final_text)
 fp.close()
